@@ -6,12 +6,18 @@ import HomePage from "./pages/HomePage.jsx";
 import WorksPage from "./pages/WorksPage.jsx";
 import WritingPage from "./pages/WritingPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
 export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f3ee] text-[#18211d]">
+      <ScrollToTop />
+      
       <Header />
 
       <Routes>
+
         <Route
           path="/"
           element={<HomePage />}
@@ -21,14 +27,22 @@ export default function App() {
           path="/works"
           element={<WorksPage />}
         />
+        
         <Route
         path="/writing"
         element={<WritingPage />}
         />
+
         <Route
         path="/about"
         element={<AboutPage />}
         />
+
+        <Route
+        path="*"
+        element={<NotFoundPage />}
+        />
+
       </Routes>
 
       <Footer />
