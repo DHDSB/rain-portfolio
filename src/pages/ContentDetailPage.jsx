@@ -72,9 +72,16 @@ export default function ContentDetailPage() {
         ))}
       </div>
 
-      <p className="mt-10 text-lg leading-8 text-black/65">
-        {item.description}
-      </p>
+<div className="mt-10 space-y-6 text-lg leading-8 text-black/65">
+  <p>{item.description}</p>
+
+  {item.content?.map((paragraph, index) => (
+    <p key={`${item.id}-${index}`}>
+      {paragraph}
+    </p>
+  ))}
+</div>
+
     </main>
   );
 }
