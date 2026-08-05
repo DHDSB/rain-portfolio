@@ -4,6 +4,7 @@ import { ArrowUpRight, BookOpen, Mail, Search } from "lucide-react";
 import Header from "./components/Header.jsx";
 import { contentItems, latestItems } from "./data/content.js";
 import Footer from "./components/Footer.jsx";
+import ContentCard from "./components/ContentCard.jsx";
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [keyword, setKeyword] = useState("");
@@ -180,44 +181,15 @@ export default function App() {
                 />
               </label>
             </div>
-
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {filteredItems.map((item) => {
-                const ItemIcon = item.icon;
+              {filteredItems.map((item) => (
+                <ContentCard
+                key={item.id}
+                item={item}
+                />
+                ))}
+                </div>
 
-                return (
-                  <article
-                    key={item.id}
-                    className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7 transition hover:-translate-y-1 hover:bg-white/[0.09]"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#d76444]">
-                        <ItemIcon className="h-5 w-5" />
-                      </div>
-                      <span className="text-xs uppercase tracking-wider text-white/40">
-                        {item.category}
-                      </span>
-                    </div>
-
-                    <h3 className="mt-8 text-2xl font-semibold">{item.title}</h3>
-                    <p className="mt-4 leading-7 text-white/60">
-                      {item.description}
-                    </p>
-
-                    <div className="mt-7 flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/55"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
 
             {filteredItems.length === 0 && (
               <p className="mt-10 rounded-2xl border border-white/10 p-6 text-white/60">
