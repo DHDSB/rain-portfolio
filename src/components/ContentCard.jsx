@@ -15,9 +15,18 @@ export default function ContentCard({ item }) {
             <ItemIcon className="h-5 w-5" />
           </div>
 
-          <span className="text-xs uppercase tracking-wider text-white/40">
-            {item.category}
-          </span>
+<div className="text-right text-xs text-white/40">
+  <span className="block uppercase tracking-wider">
+    {item.category}
+  </span>
+
+  <time
+    dateTime={item.date}
+    className="mt-1 block"
+  >
+    {item.date}
+  </time>
+</div>
         </div>
 
         <h3 className="mt-8 text-2xl font-semibold">
