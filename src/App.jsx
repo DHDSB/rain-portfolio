@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import HomePage from "./pages/HomePage.jsx";
-
+import WorksPage from "./pages/WorksPage.jsx";
 export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f3ee] text-[#18211d]">
@@ -13,6 +13,11 @@ export default function App() {
         <Route
           path="/"
           element={<HomePage />}
+        />
+        
+        <Route
+          path="/works"
+          element={<WorksPage />}
         />
       </Routes>
 
