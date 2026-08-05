@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
+import { siteConfig } from "../data/siteConfig.js";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -22,7 +22,7 @@ export default function Header() {
           onClick={() => goToSection("home")}
           className="border-0 bg-transparent text-lg font-bold tracking-tight"
         >
-          RAIN.TAN
+        {siteConfig.brand}
         </button>
 
         <nav className="hidden items-center gap-7 text-sm md:flex">

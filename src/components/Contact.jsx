@@ -1,15 +1,15 @@
 import { Mail } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { siteConfig } from "../data/siteConfig.js";
 
 export default function Contact() {
   function openEmail() {
-    window.location.href =
-      "mailto:yujietan996@gmail.com";
+    window.location.href =`mailto:${siteConfig.email}`;
   }
 
   function openGithub() {
     window.open(
-      "https://github.com/DHDSB",
+      siteConfig.github,
       "_blank",
       "noopener,noreferrer"
     );
