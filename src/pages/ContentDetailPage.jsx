@@ -49,10 +49,13 @@ export default function ContentDetailPage() {
         <ArrowLeft className="mr-2 h-4 w-4" />
         {backText}
       </Link>
-
-      <p className="mt-12 text-sm uppercase tracking-[0.22em] text-black/45">
+      <div className="mt-12 flex flex-wrap items-center gap-3 text-sm text-black/45">
+      <span className="uppercase tracking-[0.22em]">
         {item.category}
-      </p>
+        </span>
+        <span aria-hidden="true">·</span>
+        <time dateTime={item.date}>{item.date}</time>
+        </div>
 
       <h1 className="mt-3 text-5xl font-semibold tracking-tight">
         {item.title}

@@ -9,6 +9,7 @@ export const contentItems = [
     id: "work-1",
     title: "第一个作品",
     category: "作品",
+    date: "2026-08-05",
     description:
       "这里可以展示你愿意公开分享的项目、设计、创作或其他成果。",
     tags: ["作品", "展示"],
@@ -18,6 +19,7 @@ export const contentItems = [
     id: "article-1",
     title: "第一篇文章",
     category: "文章",
+    date: "2026-08-05",
     description:
       "这里可以放文章摘要，内容主题和写作方向以后由你决定。",
     tags: ["文章", "思考"],
@@ -27,6 +29,7 @@ export const contentItems = [
     id: "note-1",
     title: "一条个人记录",
     category: "记录",
+    date: "2026-08-05",
     description:
       "这里可以记录学习、生活、灵感、阅读、旅行或其他内容。",
     tags: ["记录", "成长"],
