@@ -48,30 +48,3 @@ export const contentItems = [
     icon: Sparkles,
   },
 ];
-
-export const latestItems = [
-  {
-    id: "latest-1",
-    date: "2026.08",
-    title: "欢迎来到我的个人网站",
-    description:
-      "这是第一条内容占位，之后可以替换成真正想展示的内容。",
-    tag: "说明",
-  },
-  {
-    id: "latest-2",
-    date: "2026.08",
-    title: "关于这个网站",
-    description:
-      "这里将用于整理思考、记录经历，并展示愿意公开分享的作品。",
-    tag: "记录",
-  },
-  {
-    id: "latest-3",
-    date: "2026.08",
-    title: "持续完善中",
-    description:
-      "网站框架会逐步扩展，具体内容和主题以后再决定。",
-    tag: "更新",
-  },
-];

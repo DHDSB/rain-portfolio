@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
+
 export default function LatestItem({ item }) {
   return (
-    <article className="grid gap-3 py-7 sm:grid-cols-[110px_1fr_auto] sm:items-center">
-      <span className="font-mono text-sm text-black/40">
+    <Link
+      to={`/content/${item.id}`}
+      className="grid gap-3 py-7 transition hover:text-[#d76444] sm:grid-cols-[110px_1fr_auto] sm:items-center"
+    >
+      <time
+        dateTime={item.date}
+        className="font-mono text-sm text-black/40"
+      >
         {item.date}
-      </span>
+      </time>
 
       <div>
         <h3 className="text-xl font-semibold">
@@ -16,8 +24,8 @@ export default function LatestItem({ item }) {
       </div>
 
       <span className="w-fit rounded-full bg-black/5 px-3 py-1 text-xs">
-        {item.tag}
+        {item.category}
       </span>
-    </article>
+    </Link>
   );
 }
