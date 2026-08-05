@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { ArrowUpRight, BookOpen, Mail, Search } from "lucide-react";
 import Header from "./components/Header.jsx";
 import { contentItems, latestItems } from "./data/content.js";
-
+import Footer from "./components/Footer.jsx";
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [keyword, setKeyword] = useState("");
@@ -319,10 +319,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="mx-auto flex max-w-6xl flex-col justify-between gap-3 px-5 py-8 text-sm text-black/45 sm:flex-row">
-        <span>© 2026 Rain Tan</span>
-        <span>Learning, creating, and sharing.</span>
-      </footer>
+      <Footer />
     </div>
   );
 }
