@@ -3,10 +3,16 @@ import ContentCard from "../components/ContentCard.jsx";
 import { contentItems } from "../data/content.js";
 
 export default function WritingPage() {
-  const writingItems = contentItems.filter(
+const writingItems = contentItems
+  .filter(
     (item) =>
       item.category === "文章" ||
       item.category === "记录"
+  )
+  .sort(
+    (firstItem, secondItem) =>
+      new Date(secondItem.date) -
+      new Date(firstItem.date)
   );
 
   return (

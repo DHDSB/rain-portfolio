@@ -3,8 +3,12 @@ import ContentCard from "../components/ContentCard.jsx";
 import { contentItems } from "../data/content.js";
 
 export default function WorksPage() {
-  const works = contentItems.filter(
-    (item) => item.category === "作品"
+const works = contentItems
+  .filter((item) => item.category === "作品")
+  .sort(
+    (firstItem, secondItem) =>
+      new Date(secondItem.date) -
+      new Date(firstItem.date)
   );
 
   return (

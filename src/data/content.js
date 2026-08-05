@@ -19,7 +19,7 @@ export const contentItems = [
     id: "article-1",
     title: "第一篇文章",
     category: "文章",
-    date: "2026-08-05",
+    date: "2026-08-04",
     description:
       "这里可以放文章摘要，内容主题和写作方向以后由你决定。",
     tags: ["文章", "思考"],
