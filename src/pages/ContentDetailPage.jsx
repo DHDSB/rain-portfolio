@@ -1,4 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import {
+  Link,
+  useParams,
+} from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+
 import { contentItems } from "../data/content.js";
 
 export default function ContentDetailPage() {
@@ -10,7 +15,7 @@ export default function ContentDetailPage() {
 
   if (!item) {
     return (
-      <main className="mx-auto min-h-[70vh] max-w-6xl px-5 py-20">
+      <main className="mx-auto min-h-[70vh] max-w-3xl px-5 py-20">
         <h1 className="text-5xl font-semibold">
           内容不存在
         </h1>
@@ -25,9 +30,27 @@ export default function ContentDetailPage() {
     );
   }
 
+  const backPath =
+    item.category === "作品"
+      ? "/works"
+      : "/writing";
+
+  const backText =
+    item.category === "作品"
+      ? "返回作品"
+      : "返回内容";
+
   return (
     <main className="mx-auto min-h-[70vh] max-w-3xl px-5 py-20">
-      <p className="text-sm uppercase tracking-[0.22em] text-black/45">
+      <Link
+        to={backPath}
+        className="inline-flex items-center text-sm text-black/55 transition hover:text-[#d76444]"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        {backText}
+      </Link>
+
+      <p className="mt-12 text-sm uppercase tracking-[0.22em] text-black/45">
         {item.category}
       </p>
 
