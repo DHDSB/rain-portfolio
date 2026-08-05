@@ -7,7 +7,6 @@ export default function ContentCard({ item }) {
         <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#d76444]">
           <ItemIcon className="h-5 w-5" />
         </div>
-
         <span className="text-xs uppercase tracking-wider text-white/40">
           {item.category}
         </span>

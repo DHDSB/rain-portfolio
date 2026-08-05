@@ -5,6 +5,7 @@ import Header from "./components/Header.jsx";
 import { contentItems, latestItems } from "./data/content.js";
 import Footer from "./components/Footer.jsx";
 import ContentCard from "./components/ContentCard.jsx";
+import LatestItem from "./components/LatestItem.jsx";
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [keyword, setKeyword] = useState("");
@@ -213,24 +214,11 @@ export default function App() {
           </div>
 
           <div className="mt-10 divide-y divide-black/10 border-y border-black/10">
-            {latestItems.map((item) => (
-              <article
-                key={item.id}
-                className="grid gap-3 py-7 sm:grid-cols-[110px_1fr_auto] sm:items-center"
-              >
-                <span className="font-mono text-sm text-black/40">
-                  {item.date}
-                </span>
-                <div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-1 leading-7 text-black/55">
-                    {item.description}
-                  </p>
-                </div>
-                <span className="w-fit rounded-full bg-black/5 px-3 py-1 text-xs">
-                  {item.tag}
-                </span>
-              </article>
+          {latestItems.map((item) => (
+            <LatestItem
+            key={item.id}
+            item={item}
+            />
             ))}
           </div>
         </section>
