@@ -8,11 +8,13 @@ import WritingPage from "./pages/WritingPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-
+import PageTitle from "./components/PageTitle.jsx";
 export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f3ee] text-[#18211d]">
       <ScrollToTop />
+
+      <PageTitle />
       
       <Header />
 
