@@ -134,7 +134,7 @@ export default function ContentDetailPage() {
               ),
               img: ({ src, alt }) =>
                 createElement("img", {
-                  src,
+                  src: getImageUrl(src),
                   alt: alt ?? "",
                   className: "my-8 w-full rounded-2xl object-cover",
                   loading: "lazy",
