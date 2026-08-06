@@ -4,12 +4,13 @@ title: 一条个人记录
 category: 记录
 date: 2026-08-05
 featured: true
+description: |-
+  这里可以记录学习、生活、灵感、阅读、旅行或其他内容。
+  test
 tags:
   - 记录
   - 成长
-description: 这里可以记录学习、生活、灵感、阅读、旅行或其他内容。
 ---
-
 ## 今天的记录
 
 这里可以编写当天的经历、想法或灵感。
