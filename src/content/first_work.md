@@ -4,7 +4,7 @@ title: 第一个作品
 category: 作品
 date: 2026-08-06
 featured: true
-published: true
+published: false
 description: 这里可以展示你愿意公开分享的项目、设计、创作或其他成果。
 tags:
   - 作品
