@@ -4,6 +4,7 @@ title: 第一个作品
 category: 作品
 date: 2026-08-06
 featured: true
+published: false
 tags:
   - 作品
   - 展示

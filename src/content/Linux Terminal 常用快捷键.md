@@ -6,6 +6,7 @@ date: 2026-08-06
 featured: true
 cover: /images/covers/Linux Terminal 常用快捷键_cover.png
 description: 介绍工作中常用的Linux快捷键。
+published: true
 tags:
   - Linux
 ---

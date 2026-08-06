@@ -49,6 +49,11 @@ content:
       - name: featured
         label: 首页精选
         type: boolean
+        
+      - name: published
+        label: 是否发布
+        type: boolean
+        default: true
 
       - name: cover
         label: 封面图片

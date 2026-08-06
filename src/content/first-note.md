@@ -7,6 +7,7 @@ featured: true
 description: |-
   这里可以记录学习、生活、灵感、阅读、旅行或其他内容。
   test
+published: true
 tags:
   - 记录
   - 成长
