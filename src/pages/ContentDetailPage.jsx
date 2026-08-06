@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 
 import ContentImage from "../components/ContentImage.jsx";
 import { allContentItems } from "../data/allContent.js";
+import { calculateReadingTime } from "../utils/readingTime.js";
 
 export default function ContentDetailPage() {
   const { id } = useParams();
@@ -29,6 +30,9 @@ export default function ContentDetailPage() {
   }
 
   const tags = item.tags ?? [];
+  const readingMinutes = calculateReadingTime(
+    item.body ?? item.description ?? ""
+  );
   const backPath = item.category === "作品" ? "/works" : "/writing";
   const backText = item.category === "作品" ? "返回作品" : "返回内容";
 
@@ -46,6 +50,8 @@ export default function ContentDetailPage() {
         <span className="uppercase tracking-[0.22em]">{item.category}</span>
         <span aria-hidden="true">·</span>
         <time dateTime={item.date}>{item.date}</time>
+        <span aria-hidden="true">·</span>
+        <span>预计阅读 {readingMinutes} 分钟</span>
       </div>
 
       <h1 className="mt-3 text-5xl font-semibold tracking-tight">
@@ -90,49 +96,40 @@ export default function ContentDetailPage() {
                   </table>
                 </div>
               ),
-
               th: ({ children }) => (
                 <th className="border border-black/15 bg-black/5 px-4 py-3 font-semibold text-[#18211d]">
                   {children}
                 </th>
               ),
-
               td: ({ children }) => (
                 <td className="border border-black/15 px-4 py-3">
                   {children}
                 </td>
               ),
-
               h2: ({ children }) => (
                 <h2 className="mb-4 mt-10 text-3xl font-semibold text-[#18211d]">
                   {children}
                 </h2>
               ),
-
               h3: ({ children }) => (
                 <h3 className="mb-3 mt-8 text-2xl font-semibold text-[#18211d]">
                   {children}
                 </h3>
               ),
-
               p: ({ children }) => <p className="my-5">{children}</p>,
-
               ul: ({ children }) => (
                 <ul className="my-5 list-disc space-y-2 pl-6">{children}</ul>
               ),
-
               ol: ({ children }) => (
                 <ol className="my-5 list-decimal space-y-2 pl-6">
                   {children}
                 </ol>
               ),
-
               blockquote: ({ children }) => (
                 <blockquote className="my-6 border-l-4 border-[#d76444] pl-5 text-black/55">
                   {children}
                 </blockquote>
               ),
-
               a: ({ href, children }) => (
                 <a
                   href={href}
@@ -143,7 +140,6 @@ export default function ContentDetailPage() {
                   {children}
                 </a>
               ),
-
               code: ({ className, children }) => {
                 const isCodeBlock = Boolean(className);
 
@@ -161,13 +157,11 @@ export default function ContentDetailPage() {
                   </code>
                 );
               },
-
               pre: ({ children }) => (
                 <pre className="my-8 overflow-hidden rounded-2xl">
                   {children}
                 </pre>
               ),
-
               img: ({ src, alt }) => (
                 <ContentImage
                   source={src}
