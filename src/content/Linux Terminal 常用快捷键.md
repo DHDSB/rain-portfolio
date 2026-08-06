@@ -4,7 +4,6 @@ title: Linux Terminal 常用快捷键
 category: 文章
 date: 2026-08-06
 featured: true
-cover: /images/1.png
 description: 介绍工作中常用的Linux快捷键。
 tags:
   - Linux
