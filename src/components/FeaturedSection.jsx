@@ -1,17 +1,23 @@
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
+
 import ContentCard from "./ContentCard.jsx";
 import { contentItems } from "../data/content.js";
 
 export default function FeaturedSection() {
   const [selectedCategory, setSelectedCategory] =
     useState("全部");
+
   const [keyword, setKeyword] = useState("");
+
+  const featuredItems = contentItems.filter(
+    (item) => item.featured
+  );
 
   const categories = [
     "全部",
     ...new Set(
-      contentItems.map((item) => item.category)
+      featuredItems.map((item) => item.category)
     ),
   ];
 
@@ -20,26 +26,28 @@ export default function FeaturedSection() {
       .trim()
       .toLowerCase();
 
-    return contentItems.filter((item) => {
-      const categoryMatches =
-        selectedCategory === "全部" ||
-        item.category === selectedCategory;
+    return contentItems
+      .filter((item) => item.featured)
+      .filter((item) => {
+        const categoryMatches =
+          selectedCategory === "全部" ||
+          item.category === selectedCategory;
 
-      const searchableText = [
-        item.title,
-        item.category,
-        item.description,
-        ...item.tags,
-      ]
-        .join(" ")
-        .toLowerCase();
+        const searchableText = [
+          item.title,
+          item.category,
+          item.description,
+          ...item.tags,
+        ]
+          .join(" ")
+          .toLowerCase();
 
-      const keywordMatches =
-        searchText === "" ||
-        searchableText.includes(searchText);
+        const keywordMatches =
+          searchText === "" ||
+          searchableText.includes(searchText);
 
-      return categoryMatches && keywordMatches;
-    });
+        return categoryMatches && keywordMatches;
+      });
   }, [keyword, selectedCategory]);
 
   return (
@@ -110,7 +118,7 @@ export default function FeaturedSection() {
 
         {filteredItems.length === 0 && (
           <p className="mt-10 rounded-2xl border border-white/10 p-6 text-white/60">
-            没有找到匹配的内容，请更换关键词。
+            没有找到匹配的精选内容。
           </p>
         )}
       </div>
