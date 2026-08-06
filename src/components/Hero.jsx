@@ -4,6 +4,7 @@ import siteContent from "../data/siteContent.json";
 
 export default function Hero({ onNavigate }) {
   const { hero } = siteContent;
+  const { panel } = hero;
 
   return (
     <section
@@ -50,46 +51,47 @@ export default function Hero({ onNavigate }) {
 
       <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#20352c] p-7 text-white shadow-2xl shadow-black/15">
         <div className="flex items-center justify-between text-xs text-white/60">
-          <span>PERSONAL SPACE</span>
-          <span>2026</span>
+          <span>{panel.label}</span>
+          <span>{panel.year}</span>
         </div>
 
         <div className="mt-20 space-y-6 font-mono text-sm">
           <div>
             <p className="text-[#f2a38d]">
-              $ currently
+              {panel.currentLabel}
             </p>
             <p className="mt-1">
-              building my personal space
+              {panel.currentValue}
             </p>
           </div>
 
           <div>
             <p className="text-[#f2a38d]">
-              $ interests
+              {panel.interestsLabel}
             </p>
             <p className="mt-1">
-              learning · creating · exploring
+              {panel.interestsValue}
             </p>
           </div>
 
           <div>
             <p className="text-[#f2a38d]">
-              $ principle
+              {panel.principleLabel}
             </p>
             <p className="mt-1">
-              stay curious
+              {panel.principleValue}
             </p>
           </div>
         </div>
 
         <div className="absolute bottom-8 right-8 grid h-24 w-24 place-items-center rounded-full bg-[#d76444] text-center text-xs font-bold uppercase tracking-widest">
           <span>
-            Learn
-            <br />
-            Create
-            <br />
-            Share
+            {panel.badgeLines.map((line, index) => (
+              <span key={`${line}-${index}`}>
+                {line}
+                {index < panel.badgeLines.length - 1 && <br />}
+              </span>
+            ))}
           </span>
         </div>
       </div>

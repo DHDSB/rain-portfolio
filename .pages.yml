@@ -115,6 +115,47 @@ content:
           - name: secondaryButton
             label: 次按钮文字
             type: string
+          
+          - name: panel
+            label: 右侧信息卡
+            type: object
+            fields:
+              - name: label
+                label: 顶部标签
+                type: string
+
+              - name: year
+                label: 年份
+                type: string
+
+              - name: currentLabel
+                label: 当前状态标签
+                type: string
+
+              - name: currentValue
+                label: 当前状态内容
+                type: string
+
+              - name: interestsLabel
+                label: 兴趣标签
+                type: string
+
+              - name: interestsValue
+                label: 兴趣内容
+                type: string
+
+              - name: principleLabel
+                label: 原则标签
+                type: string
+
+              - name: principleValue
+                label: 原则内容
+                type: string
+
+              - name: badgeLines
+                label: 圆形徽章文字
+                type: string
+                list: true
 
       - name: about
         label: 关于区域

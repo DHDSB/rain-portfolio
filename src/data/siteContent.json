@@ -5,8 +5,24 @@
     "titleLine2": "展示创造。",
     "description": "你好，我是 Rain。这里是我的个人网站，用于记录学习、整理思考，并展示我愿意公开分享的作品与经历。",
     "primaryButton": "浏览内容",
-    "secondaryButton": "了解更多"
+    "secondaryButton": "了解更多",
+    "panel": {
+    "label": "PERSONAL SPACE",
+    "year": "2026",
+    "currentLabel": "$ currently",
+    "currentValue": "building my personal space",
+    "interestsLabel": "$ interests",
+    "interestsValue": "learning · creating · exploring",
+    "principleLabel": "$ principle",
+    "principleValue": "stay curious",
+    "badgeLines": [
+        "Learn",
+        "Create",
+        "Share"
+  ]
+}
   },
+  
   "about": {
     "eyebrow": "About",
     "title": "关于这个网站",
