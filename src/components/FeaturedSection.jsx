@@ -3,11 +3,12 @@ import { Search } from "lucide-react";
 
 import ContentCard from "./ContentCard.jsx";
 import { allContentItems } from "../data/allContent.js";
+import siteContent from "../data/siteContent.json";
 
 export default function FeaturedSection() {
-  const [selectedCategory, setSelectedCategory] =
-    useState("全部");
+  const { featured } = siteContent;
 
+  const [selectedCategory, setSelectedCategory] = useState("全部");
   const [keyword, setKeyword] = useState("");
 
   const featuredItems = allContentItems.filter(
@@ -22,9 +23,7 @@ export default function FeaturedSection() {
   ];
 
   const filteredItems = useMemo(() => {
-    const searchText = keyword
-      .trim()
-      .toLowerCase();
+    const searchText = keyword.trim().toLowerCase();
 
     return allContentItems
       .filter((item) => item.featured)
@@ -37,7 +36,7 @@ export default function FeaturedSection() {
           item.title,
           item.category,
           item.description,
-          ...item.tags,
+          ...(item.tags ?? []),
         ]
           .join(" ")
           .toLowerCase();
@@ -59,16 +58,16 @@ export default function FeaturedSection() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.22em] text-white/50">
-              Featured content
+              {featured.eyebrow}
             </p>
 
             <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              精选内容
+              {featured.title}
             </h2>
           </div>
 
           <p className="max-w-md leading-7 text-white/55">
-            这里将展示我选择公开分享的作品、文章、记录和其他内容。
+            {featured.description}
           </p>
         </div>
 
@@ -78,9 +77,7 @@ export default function FeaturedSection() {
               <button
                 key={category}
                 type="button"
-                onClick={() =>
-                  setSelectedCategory(category)
-                }
+                onClick={() => setSelectedCategory(category)}
                 className={
                   selectedCategory === category
                     ? "rounded-full border-0 bg-[#d76444] px-4 py-2 text-sm text-white"
@@ -98,9 +95,7 @@ export default function FeaturedSection() {
             <input
               type="search"
               value={keyword}
-              onChange={(event) =>
-                setKeyword(event.target.value)
-              }
+              onChange={(event) => setKeyword(event.target.value)}
               placeholder="搜索内容"
               className="w-44 border-0 bg-transparent text-sm text-white outline-none placeholder:text-white/35"
             />

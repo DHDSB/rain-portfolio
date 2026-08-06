@@ -23,6 +23,12 @@
 }
   },
   
+  "featured": {
+  "eyebrow": "Featured content",
+  "title": "精选内容",
+  "description": "这里将展示我选择公开分享的作品、文章、记录和其他内容。"
+},
+
   "about": {
     "eyebrow": "About",
     "title": "关于这个网站",

@@ -156,6 +156,21 @@ content:
                 label: 圆形徽章文字
                 type: string
                 list: true
+      - name: featured
+        label: 精选内容区域
+        type: object
+        fields:
+          - name: eyebrow
+            label: 英文标签
+            type: string
+
+          - name: title
+            label: 标题
+            type: string
+
+          - name: description
+            label: 说明文字
+            type: text
 
       - name: about
         label: 关于区域
