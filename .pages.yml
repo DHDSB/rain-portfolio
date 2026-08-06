@@ -50,6 +50,19 @@ content:
         label: 首页精选
         type: boolean
 
+      - name: cover
+        label: 封面图片
+        type: image
+        required: false
+        options:
+          path: public/images
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+          rename: true
+          
       - name: description
         label: 摘要
         type: text
