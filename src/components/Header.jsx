@@ -16,11 +16,16 @@ const navigationItems = [
   {
     label: "内容",
     path: "/writing",
-  },
+  }, 
+  {
+  label: "搜索",
+  path: "/search",
+},
   {
     label: "关于",
     path: "/about",
   },
+
 ];
 
 export default function Header() {

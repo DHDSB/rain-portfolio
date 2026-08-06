@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import PageTitle from "./components/PageTitle.jsx";
 import ContentDetailPage from "./pages/ContentDetailPage.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
 export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f3ee] text-[#18211d]">
@@ -20,7 +21,11 @@ export default function App() {
       <Header />
 
       <Routes>
-
+        <Route
+          path="/search"
+          element={<SearchPage />}
+        />
+        
         <Route
           path="/"
           element={<HomePage />}
