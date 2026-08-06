@@ -1,10 +1,14 @@
 import { Mail } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+
 import { siteConfig } from "../data/siteConfig.js";
+import siteContent from "../data/siteContent.json";
 
 export default function Contact() {
+  const { contact } = siteContent;
+
   function openEmail() {
-    window.location.href =`mailto:${siteConfig.email}`;
+    window.location.href = `mailto:${siteConfig.email}`;
   }
 
   function openGithub() {
@@ -20,11 +24,11 @@ export default function Contact() {
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#d76444] p-8 text-white sm:p-12 lg:flex-row lg:items-center">
         <div>
           <p className="text-sm uppercase tracking-[0.22em] text-white/65">
-            Let&apos;s connect
+            {contact.eyebrow}
           </p>
 
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
-            欢迎与我联系
+            {contact.title}
           </h2>
         </div>
 

@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "eyebrow": "Personal Blog · Portfolio · Notes",
+    "titleLine1": "记录思考，",
+    "titleLine2": "展示创造。",
+    "description": "你好，我是 Rain。这里是我的个人网站，用于记录学习、整理思考，并展示我愿意公开分享的作品与经历。",
+    "primaryButton": "浏览内容",
+    "secondaryButton": "了解更多"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "关于这个网站",
+    "paragraphs": [
+      "这是一个持续完善中的个人空间，用于保存想法、整理内容，并展示愿意公开分享的作品与经历。",
+      "网站的主题不会被预先限制，未来展示什么内容，将由我自己决定。"
+    ]
+  },
+  "contact": {
+    "eyebrow": "Let's connect",
+    "title": "欢迎与我联系"
+  }
+}

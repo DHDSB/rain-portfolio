@@ -1,6 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 
+import siteContent from "../data/siteContent.json";
+
 export default function Hero({ onNavigate }) {
+  const { hero } = siteContent;
+
   return (
     <section
       id="home"
@@ -9,19 +13,19 @@ export default function Hero({ onNavigate }) {
       <div>
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-4 py-2 text-sm">
           <span className="h-2 w-2 rounded-full bg-emerald-500" />
-          Personal Blog · Portfolio · Notes
+          {hero.eyebrow}
         </div>
 
         <h1 className="max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] sm:text-7xl">
-          记录思考，
+          {hero.titleLine1}
           <br />
           <span className="text-[#6b7d72]">
-            展示创造。
+            {hero.titleLine2}
           </span>
         </h1>
 
         <p className="mt-7 max-w-2xl text-lg leading-8 text-black/65">
-          你好，我是 Rain。这里是我的个人网站，用于记录学习、整理思考，并展示我愿意公开分享的作品与经历。
+          {hero.description}
         </p>
 
         <div className="mt-9 flex flex-wrap gap-3">
@@ -30,7 +34,7 @@ export default function Hero({ onNavigate }) {
             onClick={() => onNavigate("featured")}
             className="inline-flex h-12 items-center rounded-full border-0 bg-[#d76444] px-6 font-medium text-white transition hover:bg-[#bd5135]"
           >
-            浏览内容
+            {hero.primaryButton}
             <ArrowUpRight className="ml-2 h-4 w-4" />
           </button>
 
@@ -39,7 +43,7 @@ export default function Hero({ onNavigate }) {
             onClick={() => onNavigate("about")}
             className="h-12 rounded-full border border-black/15 bg-transparent px-6 font-medium transition hover:bg-white"
           >
-            了解更多
+            {hero.secondaryButton}
           </button>
         </div>
       </div>
