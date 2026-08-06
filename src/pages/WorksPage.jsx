@@ -1,43 +1,65 @@
-import { useMemo, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import PageHeader from "../components/PageHeader.jsx";
 import ContentCard from "../components/ContentCard.jsx";
 import TagFilter from "../components/TagFilter.jsx";
+import LoadMoreButton from "../components/LoadMoreButton.jsx";
 import { allContentItems } from "../data/allContent.js";
 
-export default function WorksPage() {
-  const [selectedTag, setSelectedTag] =
-    useState("全部");
+const PAGE_SIZE = 3;
 
-  const works = useMemo(
-    () =>
-      allContentItems
-        .filter(
-          (item) => item.category === "作品"
-        )
-        .sort(
-          (firstItem, secondItem) =>
-            new Date(secondItem.date) -
-            new Date(firstItem.date)
-        ),
-    []
+export default function WorksPage() {
+  const [selectedTag, setSelectedTag] = useState("全部");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const works = useMemo(() => {
+    return [...allContentItems]
+      .filter((item) => item.category === "作品")
+      .sort(
+        (firstItem, secondItem) =>
+          new Date(secondItem.date) - new Date(firstItem.date)
+      );
+  }, []);
+
+  const tags = useMemo(() => {
+    return [
+      "全部",
+      ...new Set(
+        works.flatMap((item) => item.tags ?? [])
+      ),
+    ];
+  }, [works]);
+
+  const filteredWorks = useMemo(() => {
+    if (selectedTag === "全部") {
+      return works;
+    }
+
+    return works.filter((item) =>
+      item.tags?.includes(selectedTag)
+    );
+  }, [selectedTag, works]);
+
+  const visibleWorks = filteredWorks.slice(0, visibleCount);
+
+  const remainingCount = Math.max(
+    filteredWorks.length - visibleWorks.length,
+    0
   );
 
-  const tags = [
-    "全部",
-    ...new Set(
-      works.flatMap(
-        (item) => item.tags ?? []
-      )
-    ),
-  ];
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedTag]);
 
-  const filteredWorks =
-    selectedTag === "全部"
-      ? works
-      : works.filter((item) =>
-          item.tags?.includes(selectedTag)
-        );
+  function loadMore() {
+    setVisibleCount(
+      (currentCount) => currentCount + PAGE_SIZE
+    );
+  }
 
   return (
     <main className="min-h-[70vh]">
@@ -59,15 +81,22 @@ export default function WorksPage() {
 
       <section className="bg-[#1d2923] px-5 py-16 text-white">
         <div className="mx-auto max-w-6xl">
-          {filteredWorks.length > 0 ? (
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {filteredWorks.map((item) => (
-                <ContentCard
-                  key={item.id}
-                  item={item}
-                />
-              ))}
-            </div>
+          {visibleWorks.length > 0 ? (
+            <>
+              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {visibleWorks.map((item) => (
+                  <ContentCard
+                    key={item.id}
+                    item={item}
+                  />
+                ))}
+              </div>
+
+              <LoadMoreButton
+                onClick={loadMore}
+                remainingCount={remainingCount}
+              />
+            </>
           ) : (
             <p className="rounded-2xl border border-white/10 p-6 text-white/60">
               该标签下暂时没有作品。
