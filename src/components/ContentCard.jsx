@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
@@ -20,9 +21,14 @@ export default function ContentCard({ item }) {
       to={`/content/${item.id}`}
       className="group block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.06] !text-white transition hover:-translate-y-1 hover:bg-white/[0.09]"
     >
-      {coverUrl && (
-        {coverUrl}
-      )}
+      {coverUrl
+        ? createElement("img", {
+            src: coverUrl,
+            alt: item.title,
+            className: "h-52 w-full object-cover",
+            loading: "lazy",
+          })
+        : null}
 
       <article className="p-7">
         <div className="flex items-center justify-between">
