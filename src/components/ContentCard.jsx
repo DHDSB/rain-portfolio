@@ -7,9 +7,17 @@ function getImageUrl(cover) {
     return "";
   }
 
-  const cleanPath = cover.replace(/^\/+/, "");
+  let cleanPath = cover;
 
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
+  if (cleanPath.startsWith("/")) {
+    cleanPath = cleanPath.slice(1);
+  }
+
+  if (cleanPath.startsWith("public/")) {
+    cleanPath = cleanPath.slice(7);
+  }
+
+  return import.meta.env.BASE_URL + cleanPath;
 }
 
 export default function ContentCard({ item }) {

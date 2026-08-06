@@ -1,9 +1,28 @@
+import { createElement } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { allContentItems } from "../data/allContent.js";
+
+function getImageUrl(cover) {
+  if (!cover) {
+    return "";
+  }
+
+  let cleanPath = cover;
+
+  if (cleanPath.startsWith("/")) {
+    cleanPath = cleanPath.slice(1);
+  }
+
+  if (cleanPath.startsWith("public/")) {
+    cleanPath = cleanPath.slice(7);
+  }
+
+  return import.meta.env.BASE_URL + cleanPath;
+}
 
 export default function ContentDetailPage() {
   const { id } = useParams();
@@ -15,9 +34,7 @@ export default function ContentDetailPage() {
   if (!item) {
     return (
       <main className="mx-auto min-h-[70vh] max-w-3xl px-5 py-20">
-        <h1 className="text-5xl font-semibold">
-          内容不存在
-        </h1>
+        <h1 className="text-5xl font-semibold">内容不存在</h1>
 
         <Link
           to="/"
@@ -29,15 +46,10 @@ export default function ContentDetailPage() {
     );
   }
 
-  const backPath =
-    item.category === "作品"
-      ? "/works"
-      : "/writing";
-
-  const backText =
-    item.category === "作品"
-      ? "返回作品"
-      : "返回内容";
+  const coverUrl = getImageUrl(item.cover);
+  const tags = item.tags ?? [];
+  const backPath = item.category === "作品" ? "/works" : "/writing";
+  const backText = item.category === "作品" ? "返回作品" : "返回内容";
 
   return (
     <main className="mx-auto min-h-[70vh] max-w-3xl px-5 py-20">
@@ -50,33 +62,45 @@ export default function ContentDetailPage() {
       </Link>
 
       <div className="mt-12 flex flex-wrap items-center gap-3 text-sm text-black/45">
-        <span className="uppercase tracking-[0.22em]">
-          {item.category}
-        </span>
-
+        <span className="uppercase tracking-[0.22em]">{item.category}</span>
         <span aria-hidden="true">·</span>
-
-        <time dateTime={item.date}>
-          {item.date}
-        </time>
+        <time dateTime={item.date}>{item.date}</time>
       </div>
 
       <h1 className="mt-3 text-5xl font-semibold tracking-tight">
         {item.title}
       </h1>
 
-      <div className="mt-6 flex flex-wrap gap-2">
-        {item.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-black/5 px-3 py-1 text-sm"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+      {tags.length > 0 && (
+        <div className="mt-6 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-black/5 px-3 py-1 text-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
 
-      {item.body ? (
+      {coverUrl
+        ? createElement("img", {
+            src: coverUrl,
+            alt: item.title,
+            className:
+              "mt-10 aspect-[16/9] w-full rounded-[1.75rem] object-cover",
+            loading: "eager",
+          })
+        : null}
+
+      {item.description && (
+        <p className="mt-10 text-xl leading-9 text-black/65">
+          {item.description}
+        </p>
+      )}
+
+      {item.body && (
         <article className="mt-10 text-lg leading-8 text-black/65">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -86,57 +110,40 @@ export default function ContentDetailPage() {
                   {children}
                 </h2>
               ),
-
               h3: ({ children }) => (
                 <h3 className="mb-3 mt-8 text-2xl font-semibold text-[#18211d]">
                   {children}
                 </h3>
               ),
-
-              p: ({ children }) => (
-                <p className="my-5">
-                  {children}
-                </p>
-              ),
-
+              p: ({ children }) => <p className="my-5">{children}</p>,
               ul: ({ children }) => (
-                <ul className="my-5 list-disc space-y-2 pl-6">
-                  {children}
-                </ul>
+                <ul className="my-5 list-disc space-y-2 pl-6">{children}</ul>
               ),
-
               ol: ({ children }) => (
-                <ol className="my-5 list-decimal space-y-2 pl-6">
-                  {children}
-                </ol>
+                <ol className="my-5 list-decimal space-y-2 pl-6">{children}</ol>
               ),
-
               blockquote: ({ children }) => (
                 <blockquote className="my-6 border-l-4 border-[#d76444] pl-5 text-black/55">
                   {children}
                 </blockquote>
               ),
-
               code: ({ children }) => (
                 <code className="rounded bg-black/5 px-1.5 py-1 font-mono text-sm text-[#18211d]">
                   {children}
                 </code>
               ),
+              img: ({ src, alt }) =>
+                createElement("img", {
+                  src,
+                  alt: alt ?? "",
+                  className: "my-8 w-full rounded-2xl object-cover",
+                  loading: "lazy",
+                }),
             }}
           >
             {item.body}
           </ReactMarkdown>
         </article>
-      ) : (
-        <div className="mt-10 space-y-6 text-lg leading-8 text-black/65">
-          <p>{item.description}</p>
-
-          {item.content?.map((paragraph, index) => (
-            <p key={`${item.id}-${index}`}>
-              {paragraph}
-            </p>
-          ))}
-        </div>
       )}
     </main>
   );
