@@ -144,3 +144,10 @@ content:
           - name: title
             label: 标题
             type: string
+      - name: footer
+        label: 页脚区域
+        type: object
+        fields:
+          - name: message
+            label: 页脚文字
+            type: string

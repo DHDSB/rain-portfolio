@@ -17,5 +17,8 @@
   "contact": {
     "eyebrow": "Let's connect",
     "title": "欢迎与我联系"
-  }
+},
+"footer": {
+    "message": "Learning, creating, and sharing."
+}
 }
