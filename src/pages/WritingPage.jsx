@@ -1,9 +1,9 @@
 import PageHeader from "../components/PageHeader.jsx";
 import ContentCard from "../components/ContentCard.jsx";
-import { contentItems } from "../data/content.js";
+import { allContentItems } from "../data/allContent.js";
 
 export default function WritingPage() {
-const writingItems = contentItems
+const writingItems = allContentItems
   .filter(
     (item) =>
       item.category === "文章" ||

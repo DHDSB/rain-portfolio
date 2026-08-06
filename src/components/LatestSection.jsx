@@ -1,10 +1,10 @@
 import { BookOpen } from "lucide-react";
 
 import LatestItem from "./LatestItem.jsx";
-import { contentItems } from "../data/content.js";
+import { allContentItems } from "../data/allContent.js";
 
 export default function LatestSection() {
-  const latestItems = [...contentItems]
+  const latestItems = [...allContentItems]
     .sort(
       (firstItem, secondItem) =>
         new Date(secondItem.date) -

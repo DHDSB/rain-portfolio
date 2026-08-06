@@ -1,9 +1,9 @@
 import PageHeader from "../components/PageHeader.jsx";
 import ContentCard from "../components/ContentCard.jsx";
-import { contentItems } from "../data/content.js";
+import { allContentItems } from "../data/allContent.js";
 
 export default function WorksPage() {
-const works = contentItems
+const works = allContentItems
   .filter((item) => item.category === "作品")
   .sort(
     (firstItem, secondItem) =>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { contentItems } from "../data/content.js";
+import { allContentItems } from "../data/allContent.js";
 import { siteConfig } from "../data/siteConfig.js";
 
 const pageTitles = {
@@ -18,7 +18,7 @@ export default function PageTitle() {
     if (pathname.startsWith("/content/")) {
       const contentId = pathname.split("/content/")[1];
 
-      const item = contentItems.find(
+      const item = allContentItems.find(
         (contentItem) => contentItem.id === contentId
       );
 

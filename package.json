@@ -16,8 +16,11 @@
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "latest",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.18.2",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "latest",
-    "vite": "latest"
+    "vite": "latest",
+    "yaml": "^2.9.0"
   }
 }

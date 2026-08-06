@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 
 import ContentCard from "./ContentCard.jsx";
-import { contentItems } from "../data/content.js";
+import { allContentItems } from "../data/allContent.js";
 
 export default function FeaturedSection() {
   const [selectedCategory, setSelectedCategory] =
@@ -10,7 +10,7 @@ export default function FeaturedSection() {
 
   const [keyword, setKeyword] = useState("");
 
-  const featuredItems = contentItems.filter(
+  const featuredItems = allContentItems.filter(
     (item) => item.featured
   );
 
@@ -26,7 +26,7 @@ export default function FeaturedSection() {
       .trim()
       .toLowerCase();
 
-    return contentItems
+    return allContentItems
       .filter((item) => item.featured)
       .filter((item) => {
         const categoryMatches =
