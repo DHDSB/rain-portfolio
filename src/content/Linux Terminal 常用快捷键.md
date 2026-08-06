@@ -14,7 +14,7 @@ tags:
 
 ## 移动光标
 
-```
+```shell
 Ctrl + A           Ctrl + E
 跳到行首            跳到行尾
 
@@ -24,7 +24,7 @@ Alt + B            Alt + F
 
 ## 删除
 
-```
+```shell
 Ctrl + U           Ctrl + K 
 删除光标前所有内容   删除光标后所有内容
 
@@ -34,14 +34,14 @@ Ctrl + W           Alt + D
 
 ## 历史命令
 
-```
+```shell
 Ctrl + R           Ctrl + G
 进入历史命令搜索    退出历史命令搜索
 ```
 
 ## 任务控制
 
-```
+```shell
 Ctrl + C
 终止程序
 
@@ -52,14 +52,14 @@ Ctrl + Z
 
 ## 清屏
 
-```
+```shell
 Ctrl + L
 等价于clear
 ```
 
 ## Bash补全
 
-```
+```shell
 Tab
 自动补全
 

@@ -105,6 +105,25 @@ export default function ContentDetailPage() {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
+              table: ({ children }) => (
+                <div className="my-8 overflow-x-auto">
+                  <table className="w-full border-collapse text-left text-base">
+                    {children}
+                  </table>
+                </div>
+              ),
+
+              th: ({ children }) => (
+                <th className="border border-black/15 bg-black/5 px-4 py-3 font-semibold text-[#18211d]">
+                  {children}
+                </th>
+              ),
+
+              td: ({ children }) => (
+                <td className="border border-black/15 px-4 py-3">
+                  {children}
+                </td>
+              ),
               h2: ({ children }) => (
                 <h2 className="mb-4 mt-10 text-3xl font-semibold text-[#18211d]">
                   {children}
@@ -127,10 +146,39 @@ export default function ContentDetailPage() {
                   {children}
                 </blockquote>
               ),
-              code: ({ children }) => (
-                <code className="rounded bg-black/5 px-1.5 py-1 font-mono text-sm text-[#18211d]">
+              a: ({ href, children }) =>
+                createElement(
+                  "a",
+                  {
+                    href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className:
+                      "font-medium text-[#d76444] underline decoration-[#d76444]/40 underline-offset-4 transition hover:decoration-[#d76444]",
+                  },
+                  children
+                ),
+                code: ({ className, children }) => {
+                    const isCodeBlock = Boolean(className);
+
+                    if (isCodeBlock) {
+                      return (
+                        <code className="block overflow-x-auto rounded-2xl bg-[#18211d] p-5 font-mono text-sm leading-7 text-[#f5f3ee]">
+                          {children}
+                        </code>
+                      );
+                    }
+
+                    return (
+                      <code className="rounded bg-black/5 px-1.5 py-1 font-mono text-sm text-[#18211d]">
+                        {children}
+                      </code>
+                    );
+                  },
+              pre: ({ children }) => (
+                <pre className="my-8 overflow-hidden rounded-2xl">
                   {children}
-                </code>
+                </pre>
               ),
               img: ({ src, alt }) =>
                 createElement("img", {
