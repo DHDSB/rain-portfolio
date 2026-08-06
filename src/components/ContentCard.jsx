@@ -1,42 +1,19 @@
-import { createElement } from "react";
+import ContentImage from "./ContentImage.jsx";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
-function getImageUrl(cover) {
-  if (!cover) {
-    return "";
-  }
-
-  let cleanPath = cover;
-
-  if (cleanPath.startsWith("/")) {
-    cleanPath = cleanPath.slice(1);
-  }
-
-  if (cleanPath.startsWith("public/")) {
-    cleanPath = cleanPath.slice(7);
-  }
-
-  return import.meta.env.BASE_URL + cleanPath;
-}
-
 export default function ContentCard({ item }) {
   const ItemIcon = item.icon;
-  const coverUrl = getImageUrl(item.cover);
-
   return (
-    <Link
-      to={`/content/${item.id}`}
-      className="group block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.06] !text-white transition hover:-translate-y-1 hover:bg-white/[0.09]"
-    >
-      {coverUrl
-        ? createElement("img", {
-            src: coverUrl,
-            alt: item.title,
-            className: "h-52 w-full object-cover",
-            loading: "lazy",
-          })
-        : null}
+      <Link
+        to={`/content/${item.id}`}
+        className="group block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.06] !text-white transition hover:-translate-y-1 hover:bg-white/[0.09]"
+      >
+        <ContentImage
+          source={item.cover}
+          alt={item.title}
+          loading="lazy"
+          className="h-52 w-full object-cover"
+        />
 
       <article className="p-7">
         <div className="flex items-center justify-between">

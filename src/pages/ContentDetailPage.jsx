@@ -1,28 +1,10 @@
-import { createElement } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import ContentImage from "../components/ContentImage.jsx";
 import { allContentItems } from "../data/allContent.js";
-
-function getImageUrl(cover) {
-  if (!cover) {
-    return "";
-  }
-
-  let cleanPath = cover;
-
-  if (cleanPath.startsWith("/")) {
-    cleanPath = cleanPath.slice(1);
-  }
-
-  if (cleanPath.startsWith("public/")) {
-    cleanPath = cleanPath.slice(7);
-  }
-
-  return import.meta.env.BASE_URL + cleanPath;
-}
 
 export default function ContentDetailPage() {
   const { id } = useParams();
@@ -46,7 +28,6 @@ export default function ContentDetailPage() {
     );
   }
 
-  const coverUrl = getImageUrl(item.cover);
   const tags = item.tags ?? [];
   const backPath = item.category === "作品" ? "/works" : "/writing";
   const backText = item.category === "作品" ? "返回作品" : "返回内容";
@@ -84,15 +65,12 @@ export default function ContentDetailPage() {
         </div>
       )}
 
-      {coverUrl
-        ? createElement("img", {
-            src: coverUrl,
-            alt: item.title,
-            className:
-              "mt-10 aspect-[16/9] w-full rounded-[1.75rem] object-cover",
-            loading: "eager",
-          })
-        : null}
+      <ContentImage
+        source={item.cover}
+        alt={item.title}
+        loading="eager"
+        className="mt-10 aspect-[16/9] w-full rounded-[1.75rem] object-cover"
+      />
 
       {item.description && (
         <p className="mt-10 text-xl leading-9 text-black/65">
@@ -124,69 +102,80 @@ export default function ContentDetailPage() {
                   {children}
                 </td>
               ),
+
               h2: ({ children }) => (
                 <h2 className="mb-4 mt-10 text-3xl font-semibold text-[#18211d]">
                   {children}
                 </h2>
               ),
+
               h3: ({ children }) => (
                 <h3 className="mb-3 mt-8 text-2xl font-semibold text-[#18211d]">
                   {children}
                 </h3>
               ),
+
               p: ({ children }) => <p className="my-5">{children}</p>,
+
               ul: ({ children }) => (
                 <ul className="my-5 list-disc space-y-2 pl-6">{children}</ul>
               ),
+
               ol: ({ children }) => (
-                <ol className="my-5 list-decimal space-y-2 pl-6">{children}</ol>
+                <ol className="my-5 list-decimal space-y-2 pl-6">
+                  {children}
+                </ol>
               ),
+
               blockquote: ({ children }) => (
                 <blockquote className="my-6 border-l-4 border-[#d76444] pl-5 text-black/55">
                   {children}
                 </blockquote>
               ),
-              a: ({ href, children }) =>
-                createElement(
-                  "a",
-                  {
-                    href,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className:
-                      "font-medium text-[#d76444] underline decoration-[#d76444]/40 underline-offset-4 transition hover:decoration-[#d76444]",
-                  },
-                  children
-                ),
-                code: ({ className, children }) => {
-                    const isCodeBlock = Boolean(className);
 
-                    if (isCodeBlock) {
-                      return (
-                        <code className="block overflow-x-auto rounded-2xl bg-[#18211d] p-5 font-mono text-sm leading-7 text-[#f5f3ee]">
-                          {children}
-                        </code>
-                      );
-                    }
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[#d76444] underline decoration-[#d76444]/40 underline-offset-4 transition hover:decoration-[#d76444]"
+                >
+                  {children}
+                </a>
+              ),
 
-                    return (
-                      <code className="rounded bg-black/5 px-1.5 py-1 font-mono text-sm text-[#18211d]">
-                        {children}
-                      </code>
-                    );
-                  },
+              code: ({ className, children }) => {
+                const isCodeBlock = Boolean(className);
+
+                if (isCodeBlock) {
+                  return (
+                    <code className="block overflow-x-auto rounded-2xl bg-[#18211d] p-5 font-mono text-sm leading-7 text-[#f5f3ee]">
+                      {children}
+                    </code>
+                  );
+                }
+
+                return (
+                  <code className="rounded bg-black/5 px-1.5 py-1 font-mono text-sm text-[#18211d]">
+                    {children}
+                  </code>
+                );
+              },
+
               pre: ({ children }) => (
                 <pre className="my-8 overflow-hidden rounded-2xl">
                   {children}
                 </pre>
               ),
-              img: ({ src, alt }) =>
-                createElement("img", {
-                  src: getImageUrl(src),
-                  alt: alt ?? "",
-                  className: "my-8 w-full rounded-2xl object-cover",
-                  loading: "lazy",
-                }),
+
+              img: ({ src, alt }) => (
+                <ContentImage
+                  source={src}
+                  alt={alt ?? ""}
+                  loading="lazy"
+                  className="my-8 w-full rounded-2xl object-cover"
+                />
+              ),
             }}
           >
             {item.body}
