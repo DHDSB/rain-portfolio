@@ -49,7 +49,7 @@ content:
       - name: featured
         label: 首页精选
         type: boolean
-        
+
       - name: published
         label: 是否发布
         type: boolean
@@ -81,3 +81,66 @@ content:
       - name: body
         label: 正文
         type: rich-text
+  - name: site-content
+    label: 网站页面文案
+    type: file
+    path: src/data/siteContent.json
+    format: json
+
+    fields:
+      - name: hero
+        label: 首页主区域
+        type: object
+        fields:
+          - name: eyebrow
+            label: 顶部标签
+            type: string
+
+          - name: titleLine1
+            label: 标题第一行
+            type: string
+
+          - name: titleLine2
+            label: 标题第二行
+            type: string
+
+          - name: description
+            label: 首页简介
+            type: text
+
+          - name: primaryButton
+            label: 主按钮文字
+            type: string
+
+          - name: secondaryButton
+            label: 次按钮文字
+            type: string
+
+      - name: about
+        label: 关于区域
+        type: object
+        fields:
+          - name: eyebrow
+            label: 英文标签
+            type: string
+
+          - name: title
+            label: 标题
+            type: string
+
+          - name: paragraphs
+            label: 段落
+            type: text
+            list: true
+
+      - name: contact
+        label: 联系区域
+        type: object
+        fields:
+          - name: eyebrow
+            label: 英文标签
+            type: string
+
+          - name: title
+            label: 标题
+            type: string
