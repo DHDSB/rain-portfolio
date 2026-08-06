@@ -1,32 +1,47 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
+function getImageUrl(cover) {
+  if (!cover) {
+    return "";
+  }
+
+  const cleanPath = cover.replace(/^\/+/, "");
+
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
+}
+
 export default function ContentCard({ item }) {
   const ItemIcon = item.icon;
+  const coverUrl = getImageUrl(item.cover);
 
   return (
     <Link
       to={`/content/${item.id}`}
-      className="group block rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7 !text-white transition hover:-translate-y-1 hover:bg-white/[0.09]"
+      className="group block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.06] !text-white transition hover:-translate-y-1 hover:bg-white/[0.09]"
     >
-      <article>
+      {coverUrl && (
+        {coverUrl}
+      )}
+
+      <article className="p-7">
         <div className="flex items-center justify-between">
           <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#d76444]">
             <ItemIcon className="h-5 w-5" />
           </div>
 
-<div className="text-right text-xs text-white/40">
-  <span className="block uppercase tracking-wider">
-    {item.category}
-  </span>
+          <div className="text-right text-xs text-white/40">
+            <span className="block uppercase tracking-wider">
+              {item.category}
+            </span>
 
-  <time
-    dateTime={item.date}
-    className="mt-1 block"
-  >
-    {item.date}
-  </time>
-</div>
+            <time
+              dateTime={item.date}
+              className="mt-1 block"
+            >
+              {item.date}
+            </time>
+          </div>
         </div>
 
         <h3 className="mt-8 text-2xl font-semibold">
@@ -50,7 +65,8 @@ export default function ContentCard({ item }) {
 
         <div className="mt-7 inline-flex items-center text-sm text-white/70">
           查看详情
-          <ArrowUpRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+
+          <ArrowUpRight className="ml-2 h-4 w-4 transition group-hover:-translate-y-1 group-hover:translate-x-1" />
         </div>
       </article>
     </Link>
