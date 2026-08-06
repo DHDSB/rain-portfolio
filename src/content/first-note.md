@@ -11,7 +11,7 @@ tags:
   - 记录
   - 成长
 ---
-![alt text](/images/1.png)
+![alt text](/images/content/note-1/test.png)
 ## 今天的记录
 
 这里可以编写当天的经历、想法或灵感。

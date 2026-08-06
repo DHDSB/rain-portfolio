@@ -55,14 +55,14 @@ content:
         type: image
         required: false
         options:
-          path: public/images
+          path: public/images/covers
           extensions:
             - jpg
             - jpeg
             - png
             - webp
           rename: true
-          
+
       - name: description
         label: 摘要
         type: text
