@@ -31,13 +31,13 @@ tags:
 
 首页集中展示个人介绍、精选内容、最新内容，以及关于与联系区域。
 
-![个人网站首页](/images/content/rain/portfolio-home.png
+![个人网站首页](/images/content/rain-portfolio/portfolio-home.png
 
 ### 作品页
 
 作品页用于集中展示公开作品，并支持通过标签筛选内容和进入作品详情。
 
-![个ages/content/rain-portfolio/portfolio-works.png
+![个人网站作品页](/images/content/rain-portfolio/portfolio-works.png
 
 ### 内容页
 
