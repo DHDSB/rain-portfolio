@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Rain Tan 的个人网站</title>
+        <link>https://dhdsb.github.io/rain-portfolio/</link>
+        <description>作品、文章、学习笔记与其他公开内容。</description>
+        <lastBuildDate>Fri, 07 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Rain Portfolio RSS Generator</generator>
+        <language>zh-CN</language>
+        <image>
+            <title>Rain Tan 的个人网站</title>
+            <url>https://dhdsb.github.io/rain-portfolio/images/og-cover.png</url>
+            <link>https://dhdsb.github.io/rain-portfolio/</link>
+        </image>
+        <copyright>Copyright 2026 Rain Tan</copyright>
+        <atom:link href="https://dhdsb.github.io/rain-portfolio/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[从需求到交付：一个新人对企业软件研发链路的理解]]></title>
+            <link>https://dhdsb.github.io/rain-portfolio/#/content/enterprise-software-delivery-lifecycle</link>
+            <guid isPermaLink="false">https://dhdsb.github.io/rain-portfolio/#/content/enterprise-software-delivery-lifecycle</guid>
+            <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[文章源于本人在工作过程中对产品研发链路的观察与思考。隐去隐私内容并抽象为通用逻辑]]></description>
+            <author>Rain Tan</author>
+        </item>
+        <item>
+            <title><![CDATA[Linux Terminal 常用快捷键]]></title>
+            <link>https://dhdsb.github.io/rain-portfolio/#/content/article</link>
+            <guid isPermaLink="false">https://dhdsb.github.io/rain-portfolio/#/content/article</guid>
+            <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[介绍工作中常用的Linux快捷键。]]></description>
+            <author>Rain Tan</author>
+            <category>Linux</category>
+            <enclosure url="https://dhdsb.github.io/rain-portfolio/images/covers/Linux%20Terminal%20%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE_cover.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[个人网站与内容管理系统]]></title>
+            <link>https://dhdsb.github.io/rain-portfolio/#/content/rain-portfolio</link>
+            <guid isPermaLink="false">https://dhdsb.github.io/rain-portfolio/#/content/rain-portfolio</guid>
+            <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[一个支持作品、文章与记录展示的个人网站，包含 Markdown 内容管理、Pages CMS、搜索、标签筛选和自动部署。]]></description>
+            <author>Rain Tan</author>
+            <category>React</category>
+            <category>Vite</category>
+            <category>Markdown</category>
+            <category>CMS</category>
+            <enclosure url="https://dhdsb.github.io/rain-portfolio/images/covers/rain-portfolio.png" length="0" type="image/png"/>
+        </item>
+    </channel>
+</rss>
