@@ -5,6 +5,7 @@ category: 记录
 date: 2026-08-05
 featured: false
 published: false
+cover: /images/covers/designer-1.png
 description: |-
   这里可以记录学习、生活、灵感、阅读、旅行或其他内容。
   test
