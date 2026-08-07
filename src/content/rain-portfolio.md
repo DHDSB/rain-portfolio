@@ -43,7 +43,7 @@ tags:
 
 内容页用于整理文章、笔记和其他记录，并支持标签筛选、卡片浏览和内容详情跳转。
 
-![个人网站内容页](/images/content/portfolio-writing.png)
+![个人网站内容页](/images/content/rain-portfolio/portfolio-writing.png)
 
 ## 网站功能
 
