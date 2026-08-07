@@ -5,7 +5,7 @@ category: 作品
 date: 2026-08-06
 featured: true
 published: true
-cover: /images/covers/designer-1.png
+cover: /images/covers/rain-portfolio.png
 description: 一个支持作品、文章与记录展示的个人网站，包含 Markdown 内容管理、Pages CMS、搜索、标签筛选和自动部署。
 tags:
   - React
