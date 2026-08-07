@@ -59,7 +59,7 @@ export default function ArticleTableOfContents({ content = "" }) {
   return (
     <nav
       aria-label="文章目录"
-      className="mb-12 rounded-2xl border border-black/10 bg-black/[0.025] p-6"
+      className="mb-12 rounded-2xl border border-black/10 bg-black/[0.025] p-6 print:hidden"
     >
       <h2 className="text-lg font-semibold text-[#18211d]">
         本文目录

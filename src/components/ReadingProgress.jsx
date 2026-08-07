@@ -58,7 +58,7 @@ export default function ReadingProgress() {
   return (
     <div
       aria-hidden="true"
-      className="fixed left-0 top-0 z-[100] h-1 w-full bg-transparent"
+      className="fixed left-0 top-0 z-[100] h-1 w-full bg-transparent print:hidden"
     >
       <div
         className="h-full bg-[#d76444] transition-[width] duration-150"

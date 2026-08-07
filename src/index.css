@@ -61,3 +61,101 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  html {
+    background: #ffffff;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  h1 {
+    font-size: 26pt !important;
+    line-height: 1.2 !important;
+    color: #000000 !important;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    color: #000000 !important;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+    color: #000000 !important;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  p,
+  li,
+  blockquote {
+    color: #222222 !important;
+  }
+
+  article {
+    font-size: 11pt !important;
+    line-height: 1.7 !important;
+  }
+
+  article img {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  article table {
+    width: 100% !important;
+    font-size: 9pt !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  article pre,
+  article blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  article pre {
+    white-space: pre-wrap !important;
+    overflow: visible !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  .print-hidden,
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

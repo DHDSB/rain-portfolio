@@ -46,7 +46,7 @@ export default function ContentDetailPage() {
       <main className="mx-auto min-h-[70vh] max-w-3xl px-5 py-20">
         <Link
           to={backPath}
-          className="inline-flex items-center text-sm text-black/55 transition hover:text-[#d76444]"
+          className="inline-flex items-center text-sm text-black/55 transition hover:text-[#d76444] print:hidden"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           {backText}
