@@ -9,7 +9,7 @@ import ContentImage from "../components/ContentImage.jsx";
 import ReadingProgress from "../components/ReadingProgress.jsx";
 import { allContentItems } from "../data/allContent.js";
 import { calculateReadingTime } from "../utils/readingTime.js";
-
+import PrintArticleButton from "../components/PrintArticleButton.jsx";
 export default function ContentDetailPage() {
   const { id } = useParams();
 
@@ -76,6 +76,9 @@ export default function ContentDetailPage() {
             ))}
           </div>
         )}
+        <div className="mt-8 print:hidden">
+          <PrintArticleButton />
+        </div>
 
         <ContentImage
           source={item.cover}
@@ -85,7 +88,7 @@ export default function ContentDetailPage() {
         />
 
         {item.description && (
-          <p className="mt-10 text-xl leading-9 text-black/65">
+          <p className="mt-8 text-xl leading-9 text-black/65">
             {item.description}
           </p>
         )}
