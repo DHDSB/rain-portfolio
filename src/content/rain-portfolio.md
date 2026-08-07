@@ -25,6 +25,24 @@ tags:
 
 ## 页面展示
 
+### 首页
+
+首页展示个人介绍、精选内容、最新内容，以及关于与联系区域。
+
+/images/content/rain-portfolio/portfolio-home.png
+
+### 作品页
+
+作品页集中展示公开作品，并支持通过标签筛选内容。
+
+![个人网站作品页](/images/content/rain-portfolioworks.png
+
+### 内容页
+
+内容页用于整理文章、笔记和其他记录，并支持标签筛选与详情浏览。
+
+![个人网站内容页](/ent/rain-portfolio/portfolio-writing.png
+
 
 ## 网站功能
 
