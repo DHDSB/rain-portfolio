@@ -10,6 +10,7 @@ import ReadingProgress from "../components/ReadingProgress.jsx";
 import { allContentItems } from "../data/allContent.js";
 import { calculateReadingTime } from "../utils/readingTime.js";
 import PrintArticleButton from "../components/PrintArticleButton.jsx";
+import RelatedContent from "../components/RelatedContent.jsx";
 export default function ContentDetailPage() {
   const { id } = useParams();
 
@@ -198,6 +199,10 @@ export default function ContentDetailPage() {
             </article>
           </div>
         )}
+        <RelatedContent
+          currentItem={item}
+          allItems={allContentItems}
+        />
       </main>
     </>
   );
