@@ -7,40 +7,40 @@
     "primaryButton": "浏览内容",
     "secondaryButton": "了解更多",
     "panel": {
-    "label": "PERSONAL SPACE",
-    "year": "2026",
-    "currentLabel": "$ currently",
-    "currentValue": "building my personal space",
-    "interestsLabel": "$ interests",
-    "interestsValue": "learning · creating · exploring",
-    "principleLabel": "$ principle",
-    "principleValue": "stay curious",
-    "badgeLines": [
+      "label": "PERSONAL SPACE",
+      "year": "2026",
+      "currentLabel": "$ currently",
+      "currentValue": "building my personal space",
+      "interestsLabel": "$ interests",
+      "interestsValue": "learning · creating · exploring",
+      "principleLabel": "$ principle",
+      "principleValue": "stay curious",
+      "badgeLines": [
         "Learn",
         "Create",
         "Share"
-  ]
-}
+      ]
+    }
   },
-  
   "featured": {
-  "eyebrow": "Featured content",
-  "title": "精选内容",
-  "description": "这里将展示我选择公开分享的作品、文章、记录和其他内容。"
-},
-
+    "eyebrow": "Featured content",
+    "title": "精选内容",
+    "description": "这里将展示我选择公开分享的作品、文章、记录和其他内容。"
+  },
   "about": {
     "eyebrow": "About",
     "title": "关于这个网站",
     "paragraphs": [
-      "这是一个持续完善中的个人空间，用于保存想法、整理内容，并展示愿意公开分享的作品与经历。"
+      "你好，我是 Rain。我正在持续学习软件开发、自动化与云原生相关技术，也喜欢把实践过程整理成可以重复使用的笔记和作品。",
+      "这个网站是我的个人内容空间。我会在这里记录学习过程、技术实践、项目经历，以及一些值得长期保留的思考。",
+      "我希望这里不仅展示最终成果，也能记录问题如何被发现、方案如何被选择，以及作品如何一步步完善。"
     ]
   },
   "contact": {
     "eyebrow": "Let's connect",
     "title": "欢迎与我联系"
-},
-"footer": {
+  },
+  "footer": {
     "message": "Learning, creating, and sharing."
-}
+  }
 }
